@@ -19,7 +19,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Хедер */
 .parallax-header {
   height: 100vh;
   background: var(--gradient),
@@ -65,7 +64,6 @@ body {
   animation: scrollPulse 2s infinite;
 }
 
-/* Основной контент */
 .memorial-section {
   max-width: 1200px;
   margin: 5rem auto;
@@ -120,7 +118,6 @@ body {
   font-style: italic;
 }
 
-/* Дискография */
 .discography-section {
   max-width: 1200px;
   margin: 5rem auto;
@@ -159,7 +156,6 @@ body {
   border-radius: 10px;
 }
 
-/* Футер */
 .memorial-footer {
   text-align: center;
   padding: 3rem;
@@ -197,7 +193,6 @@ body {
   width: 100%;
 }
 
-/* Анимация дождя */
 .rain-button {
   position: fixed;
   bottom: 20px;
@@ -235,7 +230,6 @@ body {
   animation: fall linear forwards;
 }
 
-/* Анимации */
 @keyframes fall {
   0% {
     transform: translateY(-100%) rotate(0deg);
@@ -262,7 +256,6 @@ body {
   }
 }
 
-/* Медиа-запросы для адаптивности */
 @media (max-width: 1200px) {
   .gradient-title {
     font-size: 4rem;
