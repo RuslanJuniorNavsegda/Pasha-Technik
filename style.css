@@ -19,6 +19,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Хедер */
 .parallax-header {
   height: 100vh;
   background: var(--gradient),
@@ -36,6 +37,7 @@ body {
   padding: 2rem;
   backdrop-filter: blur(5px);
   border-radius: 15px;
+  max-width: 90%;
 }
 
 .gradient-title {
@@ -44,6 +46,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
+  word-break: break-word;
 }
 
 .subtitle {
@@ -62,6 +65,7 @@ body {
   animation: scrollPulse 2s infinite;
 }
 
+/* Основной контент */
 .memorial-section {
   max-width: 1200px;
   margin: 5rem auto;
@@ -73,10 +77,12 @@ body {
 
 .artist-portrait {
   width: 100%;
+  max-width: 500px;
   border-radius: 10px;
   filter: grayscale(100%);
   transition: filter 0.5s;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  justify-self: center;
 }
 
 .artist-portrait:hover {
@@ -114,6 +120,7 @@ body {
   font-style: italic;
 }
 
+/* Дискография */
 .discography-section {
   max-width: 1200px;
   margin: 5rem auto;
@@ -152,6 +159,7 @@ body {
   border-radius: 10px;
 }
 
+/* Футер */
 .memorial-footer {
   text-align: center;
   padding: 3rem;
@@ -164,12 +172,14 @@ body {
   display: flex;
   justify-content: center;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .social-links a {
   color: var(--secondary);
   text-decoration: none;
   position: relative;
+  padding: 0.5rem;
 }
 
 .social-links a::after {
@@ -187,6 +197,7 @@ body {
   width: 100%;
 }
 
+/* Анимация дождя */
 .rain-button {
   position: fixed;
   bottom: 20px;
@@ -224,6 +235,7 @@ body {
   animation: fall linear forwards;
 }
 
+/* Анимации */
 @keyframes fall {
   0% {
     transform: translateY(-100%) rotate(0deg);
@@ -250,6 +262,28 @@ body {
   }
 }
 
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1200px) {
+  .gradient-title {
+    font-size: 4rem;
+  }
+
+  .memorial-section {
+    gap: 3rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .gradient-title {
+    font-size: 3.5rem;
+  }
+
+  .discography-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .gradient-title {
     font-size: 3rem;
@@ -257,17 +291,30 @@ body {
 
   .memorial-section {
     grid-template-columns: 1fr;
+    margin: 3rem auto;
   }
 
   .artist-portrait {
     max-width: 400px;
-    margin: 0 auto;
+  }
+
+  .timeline {
+    padding-left: 1rem;
+  }
+
+  .quote {
+    font-size: 1.3rem;
+  }
+
+  .rain-button {
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .gradient-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .subtitle {
@@ -279,16 +326,66 @@ body {
     gap: 2rem;
   }
 
-  .quote {
-    font-size: 1.2rem;
+  .timeline-event {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
   }
 
-  .discography-section {
+  .timeline-event::before {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .discography-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .album-card {
     padding: 1rem;
   }
 
+  .social-links {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .gradient-title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .scroll-indicator {
+    width: 25px;
+    height: 40px;
+  }
+
+  .quote {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+  }
+
   .rain-button {
-    padding: 12px 20px;
-    font-size: 0.9rem;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 15px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .parallax-header {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .header-content {
+    padding: 1rem;
+  }
+
+  .gradient-title {
+    font-size: 2.5rem;
   }
 }
