@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   const albums = [
     {
-      title: "Крайний случай",
-      year: 2020,
-      tracks: 14,
-      description: "Последний студийный альбом, философское завещание",
+      title: "Статистика гуся, Часть 2",
+      year: 2017,
+      tracks: 15,
+      description: "Легендарно",
     },
     {
-      title: "Платина",
-      year: 2019,
-      tracks: 10,
-      description: "Совместный альбом с OG Buda",
+      title: "Что-то с чем-то",
+      year: 2023,
+      tracks: 16,
+      description: "Легендарно",
     },
     {
-      title: "Ультрамарин",
-      year: 2018,
-      tracks: 12,
-      description: "Переиздание дебютного альбома",
+      title: "Порядочный",
+      year: 2022,
+      tracks: 13,
+      description: "Легендарно",
     },
   ];
 
@@ -63,4 +63,42 @@ document.addEventListener("DOMContentLoaded", () => {
       el.style.transition = "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
       observer.observe(el);
     });
+
+  function createEmojiRain() {
+    const emojis = ["🌹", "🥀", "💮", "🌸", "💐"];
+    const container = document.createElement("div");
+    container.className = "emoji-rain";
+
+    for (let i = 0; i < 50; i++) {
+      const emoji = document.createElement("div");
+      emoji.className = "emoji-item";
+      emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = `${Math.random() * 100}%`;
+      emoji.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      emoji.style.animationDelay = `${Math.random() * 2}s`;
+      container.appendChild(emoji);
+    }
+
+    document.body.appendChild(container);
+
+    setTimeout(() => {
+      container.remove();
+    }, 5000);
+  }
+
+  document
+    .querySelector(".rain-button")
+    .addEventListener("click", createEmojiRain);
+
+  function adjustLayout() {
+    const portrait = document.querySelector(".artist-portrait");
+    if (window.innerWidth < 768) {
+      portrait.style.maxWidth = "300px";
+    } else {
+      portrait.style.maxWidth = "none";
+    }
+  }
+
+  window.addEventListener("resize", adjustLayout);
+  adjustLayout();
 });
